@@ -1,0 +1,54 @@
+{
+  "name": "react-ethereum-metacoin",
+  "version": "0.0.1",
+  "scripts": {
+    "lint": "eslint src/",
+    "web": "webpack-dev-server --config web/webpack.config.dev.js",
+    "build": "webpack --config web/webpack.config.dev.js",
+    "format": "prettier --ignore-path .gitignore --single-quote --use-tabs --trailing-comma es5 --write '**/*.js'"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agrcrobles/react-ethereum-metacoin"
+  },
+  "keywords": [
+    "react-native-web",
+    "ethereum",
+    "solidity",
+    "decentralized app",
+    "dapp"
+  ],
+  "bugs": {
+    "url": "https://github.com/agrcrobles/react-ethereum-metacoin/issues"
+  },
+  "author": "Alejandro Garcia <agrcrobles@gmail.com>",
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "6.2.4",
+    "babel-plugin-react-native-web": "^0.3.0-rc.3",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.14.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.5.1",
+    "ether-pudding": "^3.1.2",
+    "file-loader": "0.9.0",
+    "flow-bin": "^0.62.0",
+    "html-webpack-plugin": "2.22.0",
+    "prettier": "1.8.2",
+    "truffle-solidity-loader": "0.0.8",
+    "url-loader": "0.5.7",
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "1.14.1"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-broadcast": "^0.6.1",
+    "react-dom": "^16.2.0",
+    "react-native-typography": "^1.2.1",
+    "react-native-web": "^0.3.0-rc.3",
+    "web3": "^0.17.0-alpha"
+  }
+}

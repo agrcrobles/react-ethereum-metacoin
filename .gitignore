@@ -1,0 +1,21 @@
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# bundle
+#
+web/dist/bundle.js
+web/build/bundle.js
+
+build
+.-solidity-loader
+*.log
+
+package-lock.json
+.truffle-solidity-loader

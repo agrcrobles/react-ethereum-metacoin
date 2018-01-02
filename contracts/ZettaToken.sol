@@ -1,4 +1,5 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.8;
+
 import "./ConvertLib.sol";
 import "./EIP20Interface.sol";
 
@@ -16,7 +17,7 @@ contract ZettaToken is EIP20Interface {
 		balances[tx.origin] = 10000;
 	}
 
-	function transfer(address receiver, uint amount) returns(bool sufficient) {
+	function transfer(address receiver, uint amount) public returns(bool sufficient) {
 		if (balances[msg.sender] < amount) return false;
 		balances[msg.sender] -= amount;
 		balances[receiver] += amount;
@@ -24,17 +25,17 @@ contract ZettaToken is EIP20Interface {
 		return true;
 	}
 
-	function getBalanceInEth(address addr) returns(uint){
+	function getBalanceInEth(address addr) public returns(uint){
 		return ConvertLib.convert(balanceOf(addr),2);
 	}
 
-	function balanceOf(address addr) returns(uint) {
+	function balanceOf(address addr) public returns(uint) {
   		return balances[addr];
 	}
 
 	// uint256 public totalSupply;
 
-    function transferFrom(address from, address receiver, uint amount) returns (bool) {
+    function transferFrom(address from, address receiver, uint amount) public returns (bool) {
 		if (balances[from] < amount) return false;
 		balances[from] -= amount;
 		balances[receiver] += amount;
@@ -47,7 +48,7 @@ contract ZettaToken is EIP20Interface {
         return true;
     }
 
-    function allowance(address _owner, address _spender) returns (uint) {
+    function allowance(address _owner, address _spender) public returns (uint) {
 		return allowed[_owner][_spender];
 	}
 }

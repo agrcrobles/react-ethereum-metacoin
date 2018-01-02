@@ -105,7 +105,7 @@ module.exports = {
 	settings: {
 		'import/resolver': {
 			node: {
-				extensions: ['.js', '.web.js'],
+				extensions: ['.js', '.web.js', 'json'],
 			},
 		},
 	},

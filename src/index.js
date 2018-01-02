@@ -9,8 +9,8 @@ import { render } from 'react-native';
 
 import truffleConfig from '../truffle';
 
-const web3Location = `http://${truffleConfig.rpc.host}:${
-	truffleConfig.rpc.port
+const web3Location = `http://${truffleConfig.networks.development.host}:${
+	truffleConfig.networks.development.port
 }`;
 
 type Props = *;

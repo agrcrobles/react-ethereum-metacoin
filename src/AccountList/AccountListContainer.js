@@ -3,12 +3,14 @@
 import React, { Component } from 'react';
 import AccountList from '../AccountList/AccountList';
 import Transfer from '../Transfer';
-
-import ZettaToken from 'contracts/ZettaToken.sol';
-
+import Contract from 'truffle-contract';
 import { View, Text, StyleSheet } from 'react-native';
 
 import withWeb3 from '../withWeb3';
+
+import ZettaTokenArtifact from '../../build/contracts/ZettaToken.json';
+
+const ZettaToken = Contract(ZettaTokenArtifact);
 
 const styles = StyleSheet.create({
 	box: { paddingVertical: 10 },
@@ -25,6 +27,7 @@ class AccountListContainer extends Component<Props, State> {
 		coinbase: '',
 	};
 	componentWillMount() {
+		ZettaToken.setProvider(this.props.web3.currentProvider);
 		this.setState({ coinbase: this.props.web3.eth.coinbase });
 	}
 	componentDidMount() {
@@ -42,18 +45,17 @@ class AccountListContainer extends Component<Props, State> {
 
 	getAccountBalance: Function;
 	getAccountBalance = (account: *) => {
-		var zetta = ZettaToken.deployed();
-		return new Promise((resolve: Function, reject: Function) => {
-			zetta.balanceOf
-				.call(account, { from: account })
-				.then(function(value) {
-					resolve({ account: value.valueOf() });
-				})
-				.catch(function(e) {
-					console.error(e);
-					reject();
-				});
-		});
+		return ZettaToken.deployed()
+			.then(zetta => {
+				return zetta.balanceOf.call(account, { from: account });
+			})
+			.then(function(value) {
+				return { account: value.valueOf() };
+			})
+			.catch(function(e) {
+				console.log(e);
+				throw e;
+			});
 	};
 
 	getAccountBalances: Function;

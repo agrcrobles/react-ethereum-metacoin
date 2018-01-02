@@ -1,6 +1,6 @@
 # react-ethereum-metacoin
 
-> ZettaToken! yet another digital token implementation
+> a simple dapp
 
 ## Overview
 
@@ -19,9 +19,13 @@
 
 JSON-RPC node should be running and configured in `truffle.js`.
 
-It can be tested on [Ropsten](https://ropsten.etherscan.io/) with `Meta Task` chrome extension but I tried it in a local Ethereum node with JSON-RPC with [ethereum-mocked](https://bitbucket.org/locropulen/ethereum-mocked) listening at port `8545` or read about [how to deploy a truffle contract to ropsten](https://medium.com/@guccimanepunk/how-to-deploy-a-truffle-contract-to-ropsten-e2fb817870c1)
+It can be tested on [Ropsten](https://ropsten.etherscan.io/) with `Meta Mask` chrome extension or `Mist` but I tried it in a local Ethereum node with JSON-RPC with [ethereum-mocked](https://bitbucket.org/locropulen/ethereum-mocked) listening at port `8545` or read about [how to deploy a truffle contract to ropsten](https://medium.com/@guccimanepunk/how-to-deploy-a-truffle-contract-to-ropsten-e2fb817870c1)
+
+* Install ganache-cli
 
 ```bash
+npm install -g ganache-cli
+
 # Using ganache-cli
 ganache-cli
 ```
@@ -37,6 +41,12 @@ For more information about it see [ganache-cli](https://github.com/trufflesuite/
 # Install dependencies
 yarn
 
+# Build Sol contracts into the Ethereum node
+yarn contracts:build
+
+# Build deploy contracts into node
+yarn contracts:migrate
+
 # Run the web server
 yarn web
 ```
@@ -47,7 +57,7 @@ yarn web
 * [react-native-web](https://github.com/necolas/react-native-web) to handle native like components in the web
 * [react-broadcast](https://github.com/ReactTraining/react-broadcast) to handle eficiently web3 in the component tree
 * [web3](https://github.com/ethereum/web3.js) as the Etherum Javascript API
-* [truffle-solidity-loader](https://github.com/trufflesuite/truffle) to build an abstraction of ZettaToken
+* [truffle](https://github.com/trufflesuite/truffle) to build an abstraction of smart contract token
 * [react-native-typography](https://github.com/hectahertz/react-native-typography) to define default styles in my components
 
 ## Demo

@@ -12,3 +12,6 @@ declare module 'web3' {
 declare module 'react-native-typography' {
 	declare var exports: any;
 }
+declare module 'truffle-contract' {
+	declare var exports: any;
+}

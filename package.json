@@ -5,6 +5,8 @@
     "lint": "eslint src/",
     "web": "webpack-dev-server --config web/webpack.config.dev.js",
     "build": "webpack --config web/webpack.config.dev.js",
+    "contracts:build": "./node_modules/.bin/truffle compile",
+    "contracts:migrate": "./node_modules/.bin/truffle migrate",
     "format": "prettier --ignore-path .gitignore --single-quote --use-tabs --trailing-comma es5 --write '**/*.js'"
   },
   "engines": {
@@ -38,7 +40,8 @@
     "flow-bin": "^0.62.0",
     "html-webpack-plugin": "2.22.0",
     "prettier": "1.8.2",
-    "truffle-solidity-loader": "0.0.8",
+    "truffle": "^4.0.4",
+    "truffle-contract": "^3.0.1",
     "url-loader": "0.5.7",
     "webpack": "^2.7.0",
     "webpack-dev-server": "1.14.1"

@@ -1,8 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-
-import ZettaToken from 'contracts/ZettaToken.sol';
+import Contract from 'truffle-contract';
 import withWeb3 from '../withWeb3';
 
 import {
@@ -15,6 +14,10 @@ import {
 } from 'react-native';
 
 import { material } from 'react-native-typography';
+
+import ZettaTokenArtifact from '../../build/contracts/ZettaToken.json';
+
+const ZettaToken = Contract(ZettaTokenArtifact);
 
 type Props = *;
 type State = {
@@ -30,24 +33,26 @@ class Transfer extends Component<Props, State> {
 		from: '',
 		useCoinbase: true,
 	};
+	componentWillMount() {
+		ZettaToken.setProvider(this.props.web3.currentProvider);
+	}
 	handleSend = e => {
 		e.preventDefault();
-		var zetta = ZettaToken.deployed();
 
-		console.log(`Recipient Address: ${this.state.address}`);
+		ZettaToken.deployed()
+			.then(zetta => {
+				console.log(`Recipient Address: ${this.state.adddress}`);
 
-		let promise;
-		if (this.state.useCoinbase) {
-			promise = zetta.transfer(this.state.address, this.state.amount, {
-				from: this.props.sender,
-			});
-		} else {
-			promise = zetta.transfer(this.state.address, this.state.amount, {
-				from: this.state.from,
-			});
-		}
-
-		promise
+				if (this.state.useCoinbase) {
+					return zetta.transfer(this.state.address, this.state.amount, {
+						from: this.props.sender,
+					});
+				} else {
+					return zetta.transfer(this.state.address, this.state.amount, {
+						from: this.state.from,
+					});
+				}
+			})
 			.then(function() {
 				console.log('SENT');
 			})

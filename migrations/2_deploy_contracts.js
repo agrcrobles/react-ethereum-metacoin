@@ -1,5 +1,8 @@
+var ConvertLib = artifacts.require('./ConvertLib.sol');
+var ZettaToken = artifacts.require('./ZettaToken.sol');
+
 module.exports = function(deployer) {
 	deployer.deploy(ConvertLib);
-	deployer.autolink();
+	deployer.link(ConvertLib, ZettaToken);
 	deployer.deploy(ZettaToken);
 };

@@ -14,23 +14,25 @@
 
 * This one can be considered as opinionated versions of [react-ethereum-dapp-template](https://github.com/uzyn/react-ethereum-dapp-template) and [truffle-webpack-demo](https://github.com/ConsenSys/truffle-webpack-demo), intended for personal purposes, PRs, feedback, stars ✭ and issue reporting, welcome.
 
-## Prerequisites
-
-* Node 8 LTS
-* You can use yarn or npm
 
 ## Getting started
 
 JSON-RPC node should be running and configured in `truffle.js`.
 
-It can be tested on [Ropsten](https://ropsten.etherscan.io/) with `Meta Task` chrome extension but I tried it in a local Ethereum node with JSON-RPC with [ethereum-mocked](https://bitbucket.org/locropulen/ethereum-mocked) listening at port `8545` ( for more information about it see [ganache-cli](https://github.com/trufflesuite/ganache-cli) ) or read about [how to deploy a truffle contract to ropsten](https://medium.com/@guccimanepunk/how-to-deploy-a-truffle-contract-to-ropsten-e2fb817870c1)
+It can be tested on [Ropsten](https://ropsten.etherscan.io/) with `Meta Task` chrome extension but I tried it in a local Ethereum node with JSON-RPC with [ethereum-mocked](https://bitbucket.org/locropulen/ethereum-mocked) listening at port `8545` or read about [how to deploy a truffle contract to ropsten](https://medium.com/@guccimanepunk/how-to-deploy-a-truffle-contract-to-ropsten-e2fb817870c1)
 
 ```bash
 # Using ganache-cli
 ganache-cli
 ```
 
-Run me...
+For more information about it see [ganache-cli](https://github.com/trufflesuite/ganache-cli)
+
+## Run the web server
+
+* Node 8 LTS
+* You can use yarn or npm
+
 ```bash
 # Install dependencies
 yarn
@@ -47,6 +49,10 @@ yarn web
 * [web3](https://github.com/ethereum/web3.js) as the Etherum Javascript API
 * [truffle-solidity-loader](https://github.com/trufflesuite/truffle) to build an abstraction of ZettaToken
 * [react-native-typography](https://github.com/hectahertz/react-native-typography) to define default styles in my components
+
+## Demo
+
+![Transfering tokens](http://g.recordit.co/nxgxSFWB0Q.gif)
 
 ## TODO
 

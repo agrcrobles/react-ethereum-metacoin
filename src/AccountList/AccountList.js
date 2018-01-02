@@ -29,7 +29,7 @@ export default class AccountList extends PureComponent<Props> {
 					<Text style={material.title}>Account</Text>
 					<Text style={material.title}>Tokens</Text>
 				</View>
-				{this.props.accounts.map((value: ItemProps) => Item(value))}
+				{this.props.accounts.map(Item)}
 			</View>
 		);
 	}

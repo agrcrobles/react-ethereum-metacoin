@@ -66,7 +66,10 @@ yarn web
 
 ## TODO
 
+* Move to `web3` version 1.0.0-beta to create [the instance of the contract](https://github.com/ethereum/wiki/wiki/JavaScript-API) and remove `truffle-contract` dependency.
+
 * Use [token](https://www.ethpm.com/registry/packages/15) from ethpm and make migration from it instead.
+
 
 ## License
 

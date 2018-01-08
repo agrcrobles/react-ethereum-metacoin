@@ -53,25 +53,26 @@ module.exports = {
 					},
 				},
 			},
-			{
-				test: /\.sol/,
-				use: [
-					{
-						loader: 'json-loader',
-					},
-					{
-						loader: 'truffle-solidity-loader',
-						options: {
-							migrations_directory: path.resolve(__dirname, '../migrations'),
-							network: 'development',
-							contracts_build_directory: path.resolve(
-								__dirname,
-								'../dist/contracts'
-							),
-						},
-					},
-				],
-			},
+			// truffle-solidity-loader is not working for me
+			// {
+			// 	test: /\.sol/,
+			// 	use: [
+			// 		{
+			// 			loader: 'json-loader',
+			// 		},
+			// 		{
+			// 			loader: 'truffle-solidity-loader',
+			// 			options: {
+			// 				migrations_directory: path.resolve(__dirname, '../migrations'),
+			// 				network: 'development',
+			// 				contracts_build_directory: path.resolve(
+			// 					__dirname,
+			// 					'../dist/contracts'
+			// 				),
+			// 			},
+			// 		},
+			// 	],
+			// },
 		],
 	},
 

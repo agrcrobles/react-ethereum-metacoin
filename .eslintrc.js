@@ -103,6 +103,7 @@ module.exports = {
 		'react/prefer-stateless-function': 'off',
 	},
 	settings: {
+		'import/core-modules': ['react-native'],
 		'import/resolver': {
 			node: {
 				extensions: ['.js', '.web.js', 'json'],
